@@ -1,11 +1,10 @@
-import * as express from 'express';
-import { GetChirps, GetChirp, UpdateChirp, CreateChirp, DeleteChirp } from '../utils/chirpstore';
+import * as express from "express";
+import { GetChirps, GetChirp, UpdateChirp, CreateChirp, DeleteChirp } from "../utils/chirpstore";
 
-const router = express.Router();
+const router: express.Router = express.Router();
 
-// Get all chirps
 router.get("/", (req: express.Request, res: express.Response) => {
-    let data = GetChirps();
+    const data = GetChirps();
     const chirps = Object.keys(data).map((key) => {
         return {
             id: key,
@@ -17,24 +16,27 @@ router.get("/", (req: express.Request, res: express.Response) => {
     res.json(chirps);
 });
 
-// Get one chirp
 router.get("/:id", (req: express.Request, res: express.Response) => {
-    const id = req.params.id;
-    const chirp = GetChirp(id);
-    res.send(chirp);
+    const id: string = req.params.id;
+    const data = GetChirp(id);
+    const chirp = {
+        id: id,
+        username: data.username,
+        message: data.message
+    };
+    res.send(JSON.stringify(chirp));
 });
 
-// Create new chirp
 router.post("/", (req: express.Request, res: express.Response) => {
     let chirpObj: chirp = {
         username: req.body.username,
         message: req.body.message
     };
     CreateChirp(chirpObj);
+
     res.sendStatus(200);
 });
 
-// Edit a chirp
 router.put("/:id", (req: express.Request, res: express.Response) => {
     const id: string = req.params.id;
     let chirpObj: chirp = {
@@ -42,14 +44,16 @@ router.put("/:id", (req: express.Request, res: express.Response) => {
         message: req.body.message
     };
     UpdateChirp(id, chirpObj);
+
     res.sendStatus(200);
 });
 
-// Delete a chirp
 router.delete("/:id", (req: express.Request, res: express.Response) => {
     const id: string = req.params.id;
+    console.log(id)
     DeleteChirp(id);
-    res.send('Chirp was deleted');
+
+    res.send(`chirp ${req.params.id} was deleted`);
 });
 
 interface chirp {
@@ -57,4 +61,4 @@ interface chirp {
     message: string
 }
 
-export default router;
+export default router
