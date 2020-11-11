@@ -41,7 +41,7 @@ const AddChirp: React.FC<IAddChirpProps> = (props: IAddChirpProps) => {
                     <div className="row">
                         <textarea className="card-text" defaultValue={chirp.message} cols={50} rows={15} onChange={onMessageChange}></textarea>
                     </div>
-                    <button className="btn btn-sm btn-outline-primary float-right mx-1" onClick={saveChirp}>Save</button>
+                    <button className="btn btn-sm btn-dark float-right mx-1" onClick={saveChirp}>Save</button>
                 </div>
             </div>
         </div>

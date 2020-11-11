@@ -22,19 +22,24 @@ const Home: React.FC<IHomeProps> = () => {
     }
 
     return (
-        <div className="card text-center">
-            {chirps.map((chirp: chirp) => (
-                <div key={chirp.id} className="card shadow-lg m-2">
-                    <div className="card-body">
-                        <h5 className="card-title">@{chirp.username}</h5>
-                        <p className="card-text">{chirp.message}</p>
-                        <Link to={`/chirp/${chirp.id}/admin`}>
-                            <button className="btn btn-sm btn-outline-primary">Admin Options</button>
-                        </Link>
-                    </div>
+        <>
+            <div className="showcase">
+
+                <div className="container">
+                    {chirps.map((chirp: chirp) => (
+                        <div key={chirp.id} className="card">
+                            <div className="card">
+                                <h5 className="card-title">@{chirp.username}</h5>
+                                <p className="card-text">{chirp.message}</p>
+                                <Link to={`/chirp/${chirp.id}/admin`}>
+                                    <button className="btn btn-sm btn-dark">Admin Options</button>
+                                </Link>
+                            </div>
+                        </div>
+                    ))}
                 </div>
-            ))}
-        </div>
+            </div>
+        </>
     )
 }
 
@@ -42,3 +47,4 @@ const Home: React.FC<IHomeProps> = () => {
 interface IHomeProps { }
 
 export default Home
+

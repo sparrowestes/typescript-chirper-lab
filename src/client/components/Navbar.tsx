@@ -3,19 +3,33 @@ import { Link } from "react-router-dom";
 
 const Navbar: React.FC<INavbarProps> = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary justify-content-between">
-            <div className="container">
-                <Link to="/" className="navbar-brand">Chirpr</Link>
-                <ul className="navbar-nav">
-                    <li className="nav-item active">
-                        <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/chirp/add">Add Chirp</Link>
-                    </li>
+        <>
+        <div className="background">
+    <div className="navbar">
+        <div className="container flex">
+            <h1 className="logo">Chirper</h1>
+            <nav>
+                <ul>
+                    <li><Link to="/"><button className="btn btn-outline mx-3">Home</button></Link></li>
+                    <li><Link to="/chirp/add"><button className="btn btn-outline mx-3">Add Chirp</button></Link></li>
                 </ul>
-            </div>
-        </nav>
+            </nav>
+        </div>
+    </div>
+    </div>
+
+
+
+            {/* <div className="showcase">
+                <div className="navbar">
+                    <Link to="/"><h1>Chirpr</h1></Link>
+                    <div className="navbar">
+                        <Link to="/"><button className="btn btn-outline mx-3">Home</button></Link>
+                        <Link to="/chirp/add"><button className="btn btn-outline mx-3">Add Chirp</button></Link>
+                    </div>
+                </div>
+            </div> */}
+        </>
     )
 }
 

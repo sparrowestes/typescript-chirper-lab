@@ -1,5 +1,147 @@
-$theme-colors: (
-    'primary': #0091ea //Covalence Blue!  :D
-);
+/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'); */
 
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+body {
+    font-family: 'Lato', sans-serif;
+  }
+
+h1 {
+  margin: 20px;
+  color: #fff;
+}
+
+p {
+    color: #FF851B;
+}
+
+ul {
+    list-style-type: none;
+  }
+
+  h5 {
+      color: #FF851B;
+  }
+
+.navbar ul {
+    display: flex;
+  }
+  
+  .navbar a {
+    color: #fff;
+    padding: 10px;
+    margin: 0 5px;
+  }
+  
+//   .navbar a:hover {
+//     border-bottom: 2px #fff solid;
+//   }
+  
+  .navbar .flex {
+    justify-content: space-between;
+  }
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slideInFromLeft 1s ease-in;
+}
+
+.btn {
+    color: #fff;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px #FF851B solid;
+}
+
+.btn:hover {
+    transform: scale(0.98);
+}
+
+.background {
+    height: 150px;
+    background-color: black;
+    color: #fff;
+    position: relative;
+}
+
+.background::before,
+.background::after {
+    content: '';
+    position: absolute;
+    height: 86px;
+    bottom: -43px;
+    right: 0;
+    left: 0;
+    background: #B10DC9;
+    transform: skewY(-3deg);
+    -webkit-transform: skewY(-3deg);
+    -moz-transform: skewY(-3deg);
+    -ms-transform: skewY(-3deg);
+}
+
+.showcase {
+    height: 500px;
+    background-color: #B10DC9;
+    color: #fff;
+    position: relative;
+}
+
+.showcase::before,
+.showcase::after {
+    content: '';
+    position: absolute;
+    height: 100px;
+    bottom: -70px;
+    right: 0;
+    left: 0;
+    background: #fff;
+    transform: skewY(-3deg);
+    -webkit-transform: skewY(-3deg);
+    -moz-transform: skewY(-3deg);
+    -ms-transform: skewY(-3deg);
+}
+
+// .card:hover {
+//     transform: translateY(-15px);
+// }
+
+.card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.card-text {
+    color: black;
+}
+
+
+@keyframes slideInFromLeft {
+    0% {
+    transform: translateX(-100%);
+}
+    100% {
+    transform: translateX(0);
+}
+}
+  
+:root {
+    --primary-color: #047aed;
+    --secondary-color: #1c3fa8;
+    --dark-color: #002240;
+    --light-color: #f4f4f4;
+    --success-color: #5cb85c;
+    --error-color: #d9534f;
+  }
